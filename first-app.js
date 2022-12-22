@@ -4,6 +4,8 @@ const path = require('path');
 const error = require('./controllers/error');
 const app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -17,6 +19,6 @@ app.use('/admin',adminRoutes);
 app.use(contactUs);
 app.use(shopRoutes);
 app.use(success);
-app.use(error.status404);
+app.use(error.get404);
 
-app.listen(3000);
+app.listen(2000);
